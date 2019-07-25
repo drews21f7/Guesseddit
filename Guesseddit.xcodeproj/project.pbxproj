@@ -8,20 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		3A1DB44F22E9007F00E737DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1DB44E22E9007F00E737DC /* AppDelegate.swift */; };
-		3A1DB45122E9007F00E737DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1DB45022E9007F00E737DC /* ViewController.swift */; };
 		3A1DB45422E9007F00E737DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A1DB45222E9007F00E737DC /* Main.storyboard */; };
 		3A1DB45622E9008000E737DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A1DB45522E9008000E737DC /* Assets.xcassets */; };
 		3A1DB45922E9008000E737DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A1DB45722E9008000E737DC /* LaunchScreen.storyboard */; };
+		3A1DB46222E9087D00E737DC /* Reddit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1DB46122E9087D00E737DC /* Reddit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3A1DB44B22E9007F00E737DC /* Guesseddit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Guesseddit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A1DB44E22E9007F00E737DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3A1DB45022E9007F00E737DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3A1DB45322E9007F00E737DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3A1DB45522E9008000E737DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A1DB45822E9008000E737DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A1DB45A22E9008000E737DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A1DB46122E9087D00E737DC /* Reddit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reddit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +54,46 @@
 		3A1DB44D22E9007F00E737DC /* Guesseddit */ = {
 			isa = PBXGroup;
 			children = (
-				3A1DB44E22E9007F00E737DC /* AppDelegate.swift */,
-				3A1DB45022E9007F00E737DC /* ViewController.swift */,
+				3A1DB46322E9088000E737DC /* Models */,
+				3A1DB46422EA15DD00E737DC /* Model Controllers */,
+				3A1DB46522EA15E900E737DC /* View Controllers */,
+				3A1DB46022E9079E00E737DC /* Resources */,
 				3A1DB45222E9007F00E737DC /* Main.storyboard */,
+			);
+			path = Guesseddit;
+			sourceTree = "<group>";
+		};
+		3A1DB46022E9079E00E737DC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3A1DB44E22E9007F00E737DC /* AppDelegate.swift */,
 				3A1DB45522E9008000E737DC /* Assets.xcassets */,
 				3A1DB45722E9008000E737DC /* LaunchScreen.storyboard */,
 				3A1DB45A22E9008000E737DC /* Info.plist */,
 			);
-			path = Guesseddit;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3A1DB46322E9088000E737DC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3A1DB46122E9087D00E737DC /* Reddit.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3A1DB46422EA15DD00E737DC /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		3A1DB46522EA15E900E737DC /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +167,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A1DB45122E9007F00E737DC /* ViewController.swift in Sources */,
 				3A1DB44F22E9007F00E737DC /* AppDelegate.swift in Sources */,
+				3A1DB46222E9087D00E737DC /* Reddit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +316,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 49NKW8MQX9;
-				INFOPLIST_FILE = Guesseddit/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Guesseddit/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +334,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 49NKW8MQX9;
-				INFOPLIST_FILE = Guesseddit/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Guesseddit/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
