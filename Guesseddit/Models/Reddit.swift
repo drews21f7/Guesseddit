@@ -24,8 +24,9 @@ struct RedditPost: Codable {
     
     var title: String
     var upVotes: Int
-    var imageURLAsString: String
+    var imageURLAsString: String?
     var isNSFW: Bool
+    var isSelected: Bool = false
     
     enum CodingKeys: String, CodingKey {
         case title
