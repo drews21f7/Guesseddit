@@ -53,4 +53,20 @@ class RedditPostController {
         }.resume()
     }
     
+    func fetchPostImage(image: PostContent, completion: @escaping (UIImage?) -> Void) {
+        
+        guard let imageURL = image.imageURL else { completion(nil); return }
+        
+        URLSession.shared.dataTask(with: imageURL) { (data, _, error) in
+            
+            if let error = error {
+                print("Error with image: \(error.localizedDescription)")
+            }
+            if let data = data {
+                guard let postImage = UIImage(data: data) else { completion(nil); return }
+                completion(postImage)
+            }
+        }.resume()
+    }
+    
 }

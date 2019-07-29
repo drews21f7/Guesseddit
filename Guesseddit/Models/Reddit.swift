@@ -28,14 +28,14 @@ struct PostContent: Codable {
     
     var title: String
     var upVotes: Int
-    var imageURLAsString: String?
+    var imageURL: URL?
     var isNSFW: Bool
     var isSelected: Bool = false
     
     enum CodingKeys: String, CodingKey {
         case title
         case upVotes = "ups"
-        case imageURLAsString = "thumbnail"
+        case imageURL = "thumbnail"
         case isNSFW = "over_18"
     }
 }

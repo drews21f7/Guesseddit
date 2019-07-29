@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A1CF0ED22EF89A60034097A /* GameMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1CF0EC22EF89A60034097A /* GameMenuViewController.swift */; };
 		3A1DB44F22E9007F00E737DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1DB44E22E9007F00E737DC /* AppDelegate.swift */; };
 		3A1DB45422E9007F00E737DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A1DB45222E9007F00E737DC /* Main.storyboard */; };
 		3A1DB45622E9008000E737DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A1DB45522E9008000E737DC /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A1CF0EC22EF89A60034097A /* GameMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMenuViewController.swift; sourceTree = "<group>"; };
 		3A1DB44B22E9007F00E737DC /* Guesseddit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Guesseddit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A1DB44E22E9007F00E737DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A1DB45322E9007F00E737DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				3A1DB46C22ED123400E737DC /* GameTableViewController.swift */,
+				3A1CF0EC22EF89A60034097A /* GameMenuViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A1CF0ED22EF89A60034097A /* GameMenuViewController.swift in Sources */,
 				3A1DB46722EA167600E737DC /* RedditController.swift in Sources */,
 				3A1DB46D22ED123400E737DC /* GameTableViewController.swift in Sources */,
 				3A1DB44F22E9007F00E737DC /* AppDelegate.swift in Sources */,

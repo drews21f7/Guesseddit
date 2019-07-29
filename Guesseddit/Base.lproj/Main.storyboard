@@ -53,10 +53,10 @@
             </objects>
             <point key="canvasLocation" x="1057.9710144927537" y="116.51785714285714"/>
         </scene>
-        <!--View Controller-->
+        <!--Game Menu View Controller-->
         <scene sceneID="iaq-KI-SHo">
             <objects>
-                <viewController id="TNa-c9-HKf" sceneMemberID="viewController">
+                <viewController id="TNa-c9-HKf" customClass="GameMenuViewController" customModule="Guesseddit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LSd-a8-KWp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
