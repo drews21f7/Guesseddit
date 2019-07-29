@@ -45,6 +45,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A1CF0EE22EFA90A0034097A /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		3A1DB44222E9007F00E737DC = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +112,7 @@
 		3A1DB46522EA15E900E737DC /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3A1CF0EE22EFA90A0034097A /* CustomViews */,
 				3A1DB46C22ED123400E737DC /* GameTableViewController.swift */,
 				3A1CF0EC22EF89A60034097A /* GameMenuViewController.swift */,
 			);

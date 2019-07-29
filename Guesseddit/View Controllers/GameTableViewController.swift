@@ -35,7 +35,7 @@ class GameTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return RedditPostController.sharedInstance.redditPosts.count
+        return 4
     }
 
     /*

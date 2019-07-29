@@ -65,38 +65,57 @@
                                 <rect key="frame" x="168" y="395" width="79" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="r/AskReddit"/>
+                                <connections>
+                                    <action selector="askRedditButtonTapped:" destination="TNa-c9-HKf" eventType="touchUpInside" id="HFR-dL-79j"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g95-2w-Rfd">
                                 <rect key="frame" x="156" y="433" width="103" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="r/todayilearned"/>
+                                <connections>
+                                    <action selector="todayILearnedButtonTapped:" destination="TNa-c9-HKf" eventType="touchUpInside" id="LM4-l7-RD4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybG-JK-g4w">
                                 <rect key="frame" x="166" y="479" width="84" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="r/worldnews"/>
+                                <connections>
+                                    <action selector="worldNewsButtonTapped:" destination="TNa-c9-HKf" eventType="touchUpInside" id="sEL-LC-W3g"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TJX-3n-Tmj">
                                 <rect key="frame" x="175" y="517" width="65" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="r/Science"/>
+                                <connections>
+                                    <action selector="scienceButtonTapped:" destination="TNa-c9-HKf" eventType="touchUpInside" id="bg2-4g-lGn"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQj-qO-H7J">
                                 <rect key="frame" x="189" y="567" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="r/pics"/>
+                                <connections>
+                                    <action selector="picsButtonTapped:" destination="TNa-c9-HKf" eventType="touchUpInside" id="tqy-KL-0Tu"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9O-xM-vd7">
                                 <rect key="frame" x="177" y="605" width="61" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="r/gaming"/>
+                                <connections>
+                                    <action selector="gamingButtonTapped:" destination="TNa-c9-HKf" eventType="touchUpInside" id="Si2-zc-vf0"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAq-Ac-uwJ">
                                 <rect key="frame" x="172" y="769" width="73" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Play Game"/>
                                 <connections>
-                                    <segue destination="9Te-Ck-VGa" kind="show" id="Nvr-yp-GXb"/>
+                                    <action selector="playGameButtonTapped:" destination="TNa-c9-HKf" eventType="touchUpInside" id="Qcc-qq-caJ"/>
+                                    <segue destination="9Te-Ck-VGa" kind="show" identifier="segueToGame" id="7Xq-xS-OGq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVe-HP-tI0">
@@ -104,6 +123,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="View Leaderboard"/>
                                 <connections>
+                                    <action selector="viewLeaderboardButtonTapped:" destination="TNa-c9-HKf" eventType="touchUpInside" id="bRZ-2v-3x4"/>
                                     <segue destination="6cf-7I-OkQ" kind="show" id="Xaq-5O-c9L"/>
                                 </connections>
                             </button>
@@ -140,6 +160,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="DvY-td-pmr"/>
                     </view>
+                    <connections>
+                        <outlet property="subRedditChoiceLabel" destination="5fv-yT-dBF" id="YLQ-RU-v3Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TOC-Xa-yim" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
