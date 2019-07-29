@@ -18,12 +18,13 @@ class RedditPostController {
     
     static let baseURL = URL(string: "https://www.reddit.com")
     
-    func fetchSubRedditPosts(subReddit: String, completion: @escaping (TopLevelJSON?) -> Void) {
+    func fetchSubRedditPosts(subReddit: String, completion: @escaping ([RedditPost]?) -> Void) {
         
         guard var url = RedditPostController.baseURL else { completion (nil); return }
         
         url.appendPathComponent("r")
         url.appendPathComponent(subReddit)
+        url.appendPathExtension("json")
         
         let components = URLComponents(url: url, resolvingAgainstBaseURL: true)
         
@@ -41,15 +42,15 @@ class RedditPostController {
             do {
                 let decoder = JSONDecoder()
                 let topLevelJSON = try decoder.decode(TopLevelJSON.self, from: data)
-//                let secondLevelJSON = try decoder.decode(SecondLevelJSON.self, from: data)
-//                let thirdLevelJSON = try decoder.decode(ThirdLevelJSON.self, from: data)
-                completion(topLevelJSON)
+                let dataDictionary = topLevelJSON.data 
+                let redditPosts = dataDictionary.children
+                completion(redditPosts)
             } catch {
                 print ("Error decoding data: \(error.localizedDescription)")
                 completion(nil)
                 return
             }
-        }
+        }.resume()
     }
     
 }

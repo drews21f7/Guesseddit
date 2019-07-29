@@ -9,18 +9,22 @@
 import Foundation
 
 struct TopLevelJSON: Codable {
-    let data: [SecondLevelJSON]
+    let data: SecondLevelJSON
 }
 
 struct SecondLevelJSON: Codable {
-    let children: [ThirdLevelJSON]
-}
-
-struct ThirdLevelJSON: Codable {
-    let data: [RedditPost]
+    let children: [RedditPost]
 }
 
 struct RedditPost: Codable {
+    let post: PostContent
+    
+    enum CodingKeys: String, CodingKey {
+        case post = "data"
+    }
+}
+
+struct PostContent: Codable {
     
     var title: String
     var upVotes: Int

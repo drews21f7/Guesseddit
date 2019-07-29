@@ -16,6 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+//        RedditPostController.sharedInstance.fetchSubRedditPosts(subReddit: "funny") { (success) in
+//            if let usuccess = success {
+//                RedditPostController.sharedInstance.redditPosts = usuccess
+//            }
+//            guard let success = success else { return }
+//            RedditPostController.sharedInstance.redditPosts.append(success)
+            // print (success)
+    //  }
         return true
     }
 
