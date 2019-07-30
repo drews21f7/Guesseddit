@@ -196,22 +196,61 @@
             </objects>
             <point key="canvasLocation" x="2806" y="500"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Game Table View Controller-->
         <scene sceneID="rf7-zc-Qrz">
             <objects>
-                <tableViewController id="9Te-Ck-VGa" sceneMemberID="viewController">
+                <tableViewController id="9Te-Ck-VGa" customClass="GameTableViewController" customModule="Guesseddit" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="wn9-wP-Dwq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="bv4-zg-qHg">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap the post you think got the most upvotes!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8f-R5-7f7">
+                                    <rect key="frame" x="8" y="8" width="342" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="QfF-8n-A7v">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="229" id="QfF-8n-A7v" customClass="GameTableViewCell" customModule="Guesseddit" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="414" height="229"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QfF-8n-A7v" id="1WV-uB-Zvg">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="228.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q3S-cV-kwJ">
+                                            <rect key="frame" x="87" y="69" width="240" height="137"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="240" id="UWl-eo-12c"/>
+                                                <constraint firstAttribute="width" secondItem="q3S-cV-kwJ" secondAttribute="height" multiplier="240:137" id="Vj2-KJ-rsi"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="(post title)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bom-eg-tIg">
+                                            <rect key="frame" x="87" y="23" width="240" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="q3S-cV-kwJ" firstAttribute="bottom" secondItem="1WV-uB-Zvg" secondAttribute="bottomMargin" constant="-12" id="MTv-N3-gGV"/>
+                                        <constraint firstItem="Bom-eg-tIg" firstAttribute="top" secondItem="1WV-uB-Zvg" secondAttribute="topMargin" constant="12" id="MeK-NQ-3oE"/>
+                                        <constraint firstItem="q3S-cV-kwJ" firstAttribute="top" secondItem="Bom-eg-tIg" secondAttribute="bottom" constant="25.5" id="P8E-3f-Zv1"/>
+                                        <constraint firstItem="q3S-cV-kwJ" firstAttribute="centerX" secondItem="1WV-uB-Zvg" secondAttribute="centerX" id="p4j-n8-z9G"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="postImageView" destination="q3S-cV-kwJ" id="EDw-V1-Ajz"/>
+                                    <outlet property="postTitleLabel" destination="Bom-eg-tIg" id="z5P-PI-Wfd"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -222,7 +261,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vJv-HV-Qfc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2806" y="-214"/>
+            <point key="canvasLocation" x="2805.7971014492755" y="-214.28571428571428"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5yU-Ms-FVX">

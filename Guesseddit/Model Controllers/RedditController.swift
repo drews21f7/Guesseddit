@@ -16,6 +16,7 @@ class RedditPostController {
     
     var redditPosts: [RedditPost] = []
     
+    
     static let baseURL = URL(string: "https://www.reddit.com")
     
     func fetchSubRedditPosts(subReddit: String, completion: @escaping ([RedditPost]?) -> Void) {
@@ -53,17 +54,21 @@ class RedditPostController {
         }.resume()
     }
     
-    func fetchPostImage(image: PostContent, completion: @escaping (UIImage?) -> Void) {
+    func fetchPostImage(image: RedditPost, completion: @escaping (UIImage?) -> Void) {
         
-        guard let imageURL = image.imageURL else { completion(nil); return }
+        guard let imageURL = image.post.imageURLAsString, imageURL != "self",
+            let url = URL(string: imageURL)
+            else { completion(nil); return }
         
-        URLSession.shared.dataTask(with: imageURL) { (data, _, error) in
+        
+        URLSession.shared.dataTask(with: url) { (data, _, error) in
             
             if let error = error {
-                print("Error with image: \(error.localizedDescription)")
+                print("Error with image: \(error.localizedDescription) \n---\n \(error)")
             }
             if let data = data {
                 guard let postImage = UIImage(data: data) else { completion(nil); return }
+                print("Succesffully found image: \(String(describing: postImage.pngData()))")
                 completion(postImage)
             }
         }.resume()

@@ -9,15 +9,12 @@
 import UIKit
 
 class GameTableViewController: UITableViewController {
+    
+    var redditPostsShuffled = RedditPostController.sharedInstance.redditPosts.shuffled()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        RedditPostController.sharedInstance.fetchSubRedditPosts(subReddit: "funny") { (success) in
-//            guard let success = success else { return }
-//            print (success)
-//            }
-            //return success
+        self.tableView.reloadData()
         }
 
         // Uncomment the following line to preserve selection between presentations
@@ -38,15 +35,26 @@ class GameTableViewController: UITableViewController {
         return 4
     }
 
-    /*
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as? GameTableViewCell
+        
+        let redditPost = self.redditPostsShuffled[indexPath.row]
+        
+        //let redditPost = RedditPostController.sharedInstance.redditPosts[indexPath.row]
 
-        // Configure the cell...
+        cell?.postTitleLabel.text = redditPost.post.title
+        
+        RedditPostController.sharedInstance.fetchPostImage(image: redditPost) { (image) in
+            guard let image = image else { return }
+            DispatchQueue.main.async {
+                cell?.postImageView.image = image
+            }
+        }
 
-        return cell
+        return cell ?? UITableViewCell()
     }
-    */
+
 
     /*
     // Override to support conditional editing of the table view.
@@ -83,7 +91,7 @@ class GameTableViewController: UITableViewController {
     }
     */
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -91,6 +99,6 @@ class GameTableViewController: UITableViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+
 
 }

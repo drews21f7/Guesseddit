@@ -36,6 +36,9 @@ class GameMenuViewController: UIViewController {
                 if let gaming = gaming {
                     RedditPostController.sharedInstance.redditPosts = gaming
                     self.subRedditChosen = true
+                    DispatchQueue.main.async {
+                        self.subRedditChoiceLabel.text = "Gaming"
+                    }
                 }
             }
         } else {
@@ -44,6 +47,7 @@ class GameMenuViewController: UIViewController {
                 if let gaming = gaming {
                     RedditPostController.sharedInstance.redditPosts = gaming
                     self.subRedditChosen = true
+                    self.subRedditChoiceLabel.text = "Gaming"
                 }
             }
         }
