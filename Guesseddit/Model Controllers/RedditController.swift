@@ -16,6 +16,7 @@ class RedditPostController {
     
     var redditPosts: [RedditPost] = []
     
+    //var redditPostsShuffled = redditPosts.shuffled()
     
     static let baseURL = URL(string: "https://www.reddit.com")
     
@@ -68,7 +69,7 @@ class RedditPostController {
             }
             if let data = data {
                 guard let postImage = UIImage(data: data) else { completion(nil); return }
-                print("Succesffully found image: \(String(describing: postImage.pngData()))")
+                //print("Succesffully found image: \(String(describing: postImage.pngData()))")
                 completion(postImage)
             }
         }.resume()

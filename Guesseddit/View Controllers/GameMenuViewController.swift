@@ -60,7 +60,7 @@ class GameMenuViewController: UIViewController {
     @IBAction func playGameButtonTapped(_ sender: Any) {
         if subRedditChosen == true {
             
-            performSegue(withIdentifier: "segueToGame", sender: self)
+            //performSegue(withIdentifier: "segueToGame", sender: self)
         }// TODO: - Make notification when false
     }
     @IBAction func viewLeaderboardButtonTapped(_ sender: Any) {

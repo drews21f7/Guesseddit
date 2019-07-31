@@ -11,9 +11,18 @@ import UIKit
 class GameTableViewController: UITableViewController {
     
     var redditPostsShuffled = RedditPostController.sharedInstance.redditPosts.shuffled()
+    
+    @IBOutlet weak var scoreLabel: UILabel!
+    
+   var score = 0 {
+        didSet {
+            scoreLabel.text = "\(score)"
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        scoreLabel.text = "\(score)"
         self.tableView.reloadData()
         }
 
@@ -32,16 +41,16 @@ class GameTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 4
+        return 3
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as? GameTableViewCell
         
-        //let redditPost = self.redditPostsShuffled[indexPath.row]
-        
-        let redditPost = RedditPostController.sharedInstance.redditPosts[indexPath.row]
+        let redditPost = self.redditPostsShuffled[indexPath.row]
+        cell?.postImageView.image = nil
+        //let redditPost = RedditPostController.sharedInstance.redditPosts[indexPath.row]
 
         cell?.postTitleLabel.text = redditPost.post.title
         
@@ -53,6 +62,37 @@ class GameTableViewController: UITableViewController {
         }
 
         return cell ?? UITableViewCell()
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            let highestPost = correctPost(posts: redditPostsShuffled)
+            let selectedPost = redditPostsShuffled[indexPath.row]
+            if highestPost == redditPostsShuffled.firstIndex(of: selectedPost) {
+                score += selectedPost.post.upVotes
+                print (score)
+                print ("Great")
+                if redditPostsShuffled.count > 3 {
+                    print ("There are \(redditPostsShuffled.count) posts left")
+                    redditPostsShuffled.removeSubrange(0...2)
+                    tableView.reloadData()
+                    
+                } else {
+                    gameEndNotification(score: score)
+                }
+            } else {
+                print ("Not great")
+                if redditPostsShuffled.count > 3 {
+                   print ("There are \(redditPostsShuffled.count) posts left")
+                    redditPostsShuffled.removeSubrange(0...2)
+                    tableView.reloadData()
+                    
+                } else {
+                    gameEndNotification(score: score)
+                }
+            }
+          //  redditPostsShuffled.removeSubrange(0...3)
+           // tableView.reloadData()
+            
     }
 
 
@@ -102,3 +142,41 @@ class GameTableViewController: UITableViewController {
 
 
 }
+
+extension GameTableViewController {
+    //Checks first 4 posts in array and return post with highest number of upvotes
+    func correctPost(posts: [RedditPost]) -> Int {
+        var postLimiter = 0
+        var mostUpvotes = posts[1]
+        for post in posts {
+            //Makes sure for loop only checks first 4 posts in array
+            if postLimiter < 4 {
+                postLimiter += 1
+                if post.post.upVotes > mostUpvotes.post.upVotes {
+                    mostUpvotes = post
+                }
+            } else {
+                break
+            }
+        }
+        return redditPostsShuffled.firstIndex(of: mostUpvotes)!
+    }
+    
+    func popView() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func gameEndNotification(score: Int) {
+        let alertController = UIAlertController(title: "You got \(score) upvotes!", message: "", preferredStyle: .alert)
+        //let playAgain = UIAlertAction(title: "Play again", style: .default)
+        let mainMenu = UIAlertAction(title: "Main Menu", style: .cancel) { (_) in
+            self.popView()
+        }
+        //alertController.addAction(playAgain)
+        alertController.addAction(mainMenu)
+        
+        present(alertController, animated: true)
+    }
+}
+
+

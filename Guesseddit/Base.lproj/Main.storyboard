@@ -40,7 +40,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Skip login"/>
                                 <connections>
-                                    <segue destination="TNa-c9-HKf" kind="show" id="Vh6-sW-sdZ"/>
+                                    <segue destination="TNa-c9-HKf" kind="show" identifier="toGameMenu" id="Vh6-sW-sdZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -205,11 +205,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="bv4-zg-qHg">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap the post you think got the most upvotes!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8f-R5-7f7">
                                     <rect key="frame" x="8" y="8" width="342" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BpH-JW-iEJ">
+                                    <rect key="frame" x="8" y="37" width="50" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(score)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7o-Z3-kNG">
+                                    <rect key="frame" x="66" y="37" width="55" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
@@ -220,14 +234,14 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="366" id="QfF-8n-A7v" customClass="GameTableViewCell" customModule="Guesseddit" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="414" height="366"/>
+                                <rect key="frame" x="0.0" y="110" width="414" height="366"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QfF-8n-A7v" id="1WV-uB-Zvg">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="365.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q3S-cV-kwJ">
-                                            <rect key="frame" x="87" y="69" width="240" height="240"/>
+                                            <rect key="frame" x="167.5" y="86.5" width="79.5" height="79.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="240" id="UWl-eo-12c"/>
                                                 <constraint firstAttribute="width" secondItem="q3S-cV-kwJ" secondAttribute="height" multiplier="1:1" id="Vj2-KJ-rsi"/>
@@ -263,6 +277,9 @@
                             <outlet property="delegate" destination="9Te-Ck-VGa" id="kO3-wt-KfO"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="scoreLabel" destination="Z7o-Z3-kNG" id="1XC-iC-7QI"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vJv-HV-Qfc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -24,6 +24,14 @@ struct RedditPost: Codable {
     }
 }
 
+extension RedditPost: Equatable {
+    static func == (lhs: RedditPost, rhs: RedditPost) -> Bool {
+        return lhs.post.id == rhs.post.id
+    }
+    
+    
+}
+
 struct PostContent: Codable {
     
     var title: String
@@ -31,12 +39,14 @@ struct PostContent: Codable {
     var imageURLAsString: String?
     var isNSFW: Bool
     var isSelected: Bool = false
+    let id: String
     
     enum CodingKeys: String, CodingKey {
         case title
         case upVotes = "ups"
         case imageURLAsString = "url"
         case isNSFW = "over_18"
+        case id
     }
     
 //    struct Images: Codable {
