@@ -29,6 +29,29 @@ class GameMenuViewController: UIViewController {
     @IBAction func scienceButtonTapped(_ sender: Any) {
     }
     @IBAction func picsButtonTapped(_ sender: Any) {
+        if RedditPostController.sharedInstance.redditPosts.count == 0 {
+            RedditPostController.sharedInstance.fetchSubRedditPosts(subReddit: "pics") { (pics) in
+                if let pics = pics {
+                    RedditPostController.sharedInstance.redditPosts = pics
+                    self.subRedditChosen = true
+                    DispatchQueue.main.async {
+                        self.subRedditChoiceLabel.text = "Pics"
+                    }
+                }
+            }
+        } else {
+            RedditPostController.sharedInstance.redditPosts = []
+            RedditPostController.sharedInstance.fetchSubRedditPosts(subReddit: "pics") { (pics) in
+                if let pics = pics {
+                    RedditPostController.sharedInstance.redditPosts = pics
+                    self.subRedditChosen = true
+                    DispatchQueue.main.async {
+                        self.subRedditChoiceLabel.text = "Pics"
+                        
+                    }
+                }
+            }
+        }
     }
     @IBAction func gamingButtonTapped(_ sender: Any) {
         if RedditPostController.sharedInstance.redditPosts.count == 0 {
@@ -47,7 +70,10 @@ class GameMenuViewController: UIViewController {
                 if let gaming = gaming {
                     RedditPostController.sharedInstance.redditPosts = gaming
                     self.subRedditChosen = true
-                    self.subRedditChoiceLabel.text = "Gaming"
+                    DispatchQueue.main.async {
+                        self.subRedditChoiceLabel.text = "Gaming"
+                        
+                    }
                 }
             }
         }
@@ -59,8 +85,7 @@ class GameMenuViewController: UIViewController {
     //View Changing Buttons
     @IBAction func playGameButtonTapped(_ sender: Any) {
         if subRedditChosen == true {
-            
-            //performSegue(withIdentifier: "segueToGame", sender: self)
+            //performSegue(withIdentifier: "toGameSegue", sender: subRedditChosen)
         }// TODO: - Make notification when false
     }
     @IBAction func viewLeaderboardButtonTapped(_ sender: Any) {

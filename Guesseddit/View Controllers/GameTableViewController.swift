@@ -12,6 +12,8 @@ class GameTableViewController: UITableViewController {
     
     var redditPostsShuffled = RedditPostController.sharedInstance.redditPosts.shuffled()
     
+    var rounds = 0
+    
     @IBOutlet weak var scoreLabel: UILabel!
     
    var score = 0 {
@@ -22,6 +24,7 @@ class GameTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print ("Shuffled posts = \(redditPostsShuffled.count)")
         scoreLabel.text = "\(score)"
         self.tableView.reloadData()
         }
@@ -71,7 +74,8 @@ class GameTableViewController: UITableViewController {
                 score += selectedPost.post.upVotes
                 print (score)
                 print ("Great")
-                if redditPostsShuffled.count > 3 {
+                if rounds != 7 {
+                    rounds += 1
                     print ("There are \(redditPostsShuffled.count) posts left")
                     redditPostsShuffled.removeSubrange(0...2)
                     tableView.reloadData()
@@ -81,7 +85,8 @@ class GameTableViewController: UITableViewController {
                 }
             } else {
                 print ("Not great")
-                if redditPostsShuffled.count > 3 {
+                if rounds != 7 {
+                    rounds += 1
                    print ("There are \(redditPostsShuffled.count) posts left")
                     redditPostsShuffled.removeSubrange(0...2)
                     tableView.reloadData()
@@ -143,6 +148,7 @@ class GameTableViewController: UITableViewController {
 
 }
 
+//MARK: - Game functions
 extension GameTableViewController {
     //Checks first 4 posts in array and return post with highest number of upvotes
     func correctPost(posts: [RedditPost]) -> Int {

@@ -115,7 +115,7 @@
                                 <state key="normal" title="Play Game"/>
                                 <connections>
                                     <action selector="playGameButtonTapped:" destination="TNa-c9-HKf" eventType="touchUpInside" id="Qcc-qq-caJ"/>
-                                    <segue destination="9Te-Ck-VGa" kind="show" identifier="segueToGame" id="7Xq-xS-OGq"/>
+                                    <segue destination="9Te-Ck-VGa" kind="show" identifier="toGameSegue" id="2yn-Q4-Gua"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVe-HP-tI0">
@@ -277,6 +277,7 @@
                             <outlet property="delegate" destination="9Te-Ck-VGa" id="kO3-wt-KfO"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="wbD-Zt-krP"/>
                     <connections>
                         <outlet property="scoreLabel" destination="Z7o-Z3-kNG" id="1XC-iC-7QI"/>
                     </connections>
