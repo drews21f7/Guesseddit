@@ -35,7 +35,26 @@ struct PostContent: Codable {
     enum CodingKeys: String, CodingKey {
         case title
         case upVotes = "ups"
-        case imageURLAsString = "thumbnail"
+        case imageURLAsString = "url"
         case isNSFW = "over_18"
     }
+    
+//    struct Images: Codable {
+//        let images: [Resolutions]
+//    }
+//
+//    struct Resolutions: Codable {
+//        let resolutions: [PostImage]
+//
+//        struct PostImage: Codable {
+//            let imageURLAsString: String
+//
+//            enum CodingKeys: String, CodingKey {
+//                case imageURLAsString = "url"
+//            }
+//        }
+//    }
 }
+
+
+

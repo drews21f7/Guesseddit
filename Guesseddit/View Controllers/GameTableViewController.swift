@@ -39,9 +39,9 @@ class GameTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as? GameTableViewCell
         
-        let redditPost = self.redditPostsShuffled[indexPath.row]
+        //let redditPost = self.redditPostsShuffled[indexPath.row]
         
-        //let redditPost = RedditPostController.sharedInstance.redditPosts[indexPath.row]
+        let redditPost = RedditPostController.sharedInstance.redditPosts[indexPath.row]
 
         cell?.postTitleLabel.text = redditPost.post.title
         

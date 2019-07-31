@@ -56,7 +56,7 @@ class RedditPostController {
     
     func fetchPostImage(image: RedditPost, completion: @escaping (UIImage?) -> Void) {
         
-        guard let imageURL = image.post.imageURLAsString, imageURL != "self",
+        guard let imageURL = image.post.imageURLAsString,
             let url = URL(string: imageURL)
             else { completion(nil); return }
         
