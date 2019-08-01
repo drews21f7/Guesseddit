@@ -114,7 +114,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Play Game"/>
                                 <connections>
-                                    <action selector="playGameButtonTapped:" destination="TNa-c9-HKf" eventType="touchUpInside" id="Qcc-qq-caJ"/>
                                     <segue destination="9Te-Ck-VGa" kind="show" identifier="toGameSegue" id="2yn-Q4-Gua"/>
                                 </connections>
                             </button>
