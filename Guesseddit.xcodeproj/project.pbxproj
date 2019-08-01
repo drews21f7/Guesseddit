@@ -20,6 +20,7 @@
 		3AFE7D4822F348CE00BDECEC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFE7D4722F348CE00BDECEC /* User.swift */; };
 		3AFE7D4A22F34CA000BDECEC /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFE7D4922F34CA000BDECEC /* UserController.swift */; };
 		3AFE7D4C22F34D4B00BDECEC /* CloudKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFE7D4B22F34D4B00BDECEC /* CloudKitController.swift */; };
+		3AFE7D4E22F3818600BDECEC /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFE7D4D22F3818600BDECEC /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		3AFE7D4722F348CE00BDECEC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3AFE7D4922F34CA000BDECEC /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		3AFE7D4B22F34D4B00BDECEC /* CloudKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitController.swift; sourceTree = "<group>"; };
+		3AFE7D4D22F3818600BDECEC /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				3A1CF0EE22EFA90A0034097A /* CustomViews */,
 				3A1DB46C22ED123400E737DC /* GameTableViewController.swift */,
 				3A1CF0EC22EF89A60034097A /* GameMenuViewController.swift */,
+				3AFE7D4D22F3818600BDECEC /* SignInViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				3A1DB44F22E9007F00E737DC /* AppDelegate.swift in Sources */,
 				3A1DB46222E9087D00E737DC /* Reddit.swift in Sources */,
 				3A1CF0F022EFACB20034097A /* GameTableViewCell.swift in Sources */,
+				3AFE7D4E22F3818600BDECEC /* SignInViewController.swift in Sources */,
 				3AFE7D4822F348CE00BDECEC /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

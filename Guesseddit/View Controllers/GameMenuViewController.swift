@@ -16,6 +16,7 @@ class GameMenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Current user is \(String(describing: UserController.sharedInstance.currentUser))")
         subRedditChoiceLabel.text = ""
         
     }

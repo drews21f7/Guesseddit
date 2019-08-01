@@ -68,6 +68,9 @@ class GameTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let user = UserController.sharedInstance.currentUser else { return }
+        let newHighScore: Bool
+        var scoreDifference = 0
             let highestPost = correctPost(posts: redditPostsShuffled)
             let selectedPost = redditPostsShuffled[indexPath.row]
             if highestPost == redditPostsShuffled.firstIndex(of: selectedPost) {
@@ -80,8 +83,15 @@ class GameTableViewController: UITableViewController {
                     redditPostsShuffled.removeSubrange(0...2)
                     tableView.reloadData()
                     
+                } else if user.topScore < score {
+                    scoreDifference = score - user.topScore
+                    user.topScore = score
+                    newHighScore = true
+                    gameEndNotification(score: score, scoreDifference: scoreDifference, newHighScore: newHighScore)
                 } else {
-                    gameEndNotification(score: score)
+                    scoreDifference = 0
+                    newHighScore = false
+                    gameEndNotification(score: score, scoreDifference: scoreDifference, newHighScore: newHighScore)
                 }
             } else {
                 print ("Not great")
@@ -91,8 +101,15 @@ class GameTableViewController: UITableViewController {
                     redditPostsShuffled.removeSubrange(0...2)
                     tableView.reloadData()
                     
+                } else if user.topScore < score {
+                    scoreDifference = score - user.topScore
+                    user.topScore = score
+                    newHighScore = true
+                    gameEndNotification(score: score, scoreDifference: scoreDifference, newHighScore: newHighScore)
                 } else {
-                    gameEndNotification(score: score)
+                    scoreDifference = 0
+                    newHighScore = false
+                    gameEndNotification(score: score, scoreDifference: scoreDifference, newHighScore: newHighScore)
                 }
             }
           //  redditPostsShuffled.removeSubrange(0...3)
@@ -172,16 +189,29 @@ extension GameTableViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    func gameEndNotification(score: Int) {
-        let alertController = UIAlertController(title: "You got \(score) upvotes!", message: "", preferredStyle: .alert)
-        //let playAgain = UIAlertAction(title: "Play again", style: .default)
-        let mainMenu = UIAlertAction(title: "Main Menu", style: .cancel) { (_) in
-            self.popView()
+    func gameEndNotification(score: Int, scoreDifference: Int, newHighScore: Bool) {
+        if newHighScore == true {
+            let alertController = UIAlertController(title: "New high score! You got \(score) upvotes!", message: "You got \(scoreDifference) more upvotes than your last score!", preferredStyle: .alert)
+            //let playAgain = UIAlertAction(title: "Play again", style: .default)
+            let mainMenu = UIAlertAction(title: "Main Menu", style: .cancel) { (_) in
+                self.popView()
+            }
+            //alertController.addAction(playAgain)
+            alertController.addAction(mainMenu)
+            
+            present(alertController, animated: true)
+        } else {
+            
+            let alertController = UIAlertController(title: "You got \(score) upvotes!", message: "", preferredStyle: .alert)
+            //let playAgain = UIAlertAction(title: "Play again", style: .default)
+            let mainMenu = UIAlertAction(title: "Main Menu", style: .cancel) { (_) in
+                self.popView()
+            }
+            //alertController.addAction(playAgain)
+            alertController.addAction(mainMenu)
+            
+            present(alertController, animated: true)
         }
-        //alertController.addAction(playAgain)
-        alertController.addAction(mainMenu)
-        
-        present(alertController, animated: true)
     }
 }
 

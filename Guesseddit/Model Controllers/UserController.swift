@@ -40,7 +40,7 @@ class UserController {
     }
     
     // Read
-    func fetchUser(completion: @escaping (Bool) -> Void) {
+    func fetchUserBool(completion: @escaping (Bool) -> Void) {
         // Unwrap the optional CKReference or complete nil
         CloudKitController.sharedInstance.fetchAppleUserReference { (reference) in
             guard let appleUserReference = reference else { completion(false) ; return }
@@ -55,6 +55,31 @@ class UserController {
                 
                 self.currentUser = User(record: record)
                 completion(true)
+            })
+        }
+    }
+    
+    func fetchUserFromLogin(user: String, pass: String, completion: @escaping (User?) -> Void) {
+        // Unwrap the optional CKReference or complete nil
+        CloudKitController.sharedInstance.fetchAppleUserReference { (reference) in
+            guard let appleUserReference = reference else { completion(nil) ; return }
+            
+            let predicate = NSPredicate(format: "appleUserReference == %@", appleUserReference)
+            let database = CloudKitController.sharedInstance.publicDB
+            CloudKitController.sharedInstance.fetchSingleRecord(ofType: UserConstants.typeKey, withPredicate: predicate, database: database, completion: { (records) in
+                
+                guard let records = records,
+                    let record = records.first
+                    else { completion(nil) ; return }
+                
+                let userRecord = User(record: record)
+                if user == userRecord?.username && pass == userRecord?.password {
+                    print("User and pass match")
+                    completion(userRecord)
+                    
+                }
+                print("User and pass did not match")
+                completion(nil)
             })
         }
     }
