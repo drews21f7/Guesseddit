@@ -85,7 +85,8 @@ class GameTableViewController: UITableViewController {
                     
                 } else if user.topScore < score {
                     scoreDifference = score - user.topScore
-                    user.topScore = score
+                    UserController.sharedInstance.updateUserScore(user: user, score: score)
+                    //user.topScore = score
                     newHighScore = true
                     gameEndNotification(score: score, scoreDifference: scoreDifference, newHighScore: newHighScore)
                 } else {
@@ -103,7 +104,8 @@ class GameTableViewController: UITableViewController {
                     
                 } else if user.topScore < score {
                     scoreDifference = score - user.topScore
-                    user.topScore = score
+                    UserController.sharedInstance.updateUserScore(user: user, score: score)
+                    //user.topScore = score
                     newHighScore = true
                     gameEndNotification(score: score, scoreDifference: scoreDifference, newHighScore: newHighScore)
                 } else {
