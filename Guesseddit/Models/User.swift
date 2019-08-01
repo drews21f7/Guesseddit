@@ -14,15 +14,17 @@ class User {
     var username: String
     var email: String?
     var password: String
+    var topScore: Int = 0
     // iCloud Class Properties
     let recordID: CKRecord.ID
     let appleUserReference: CKRecord.Reference
     
     /// Initializes a new User object
-    init(username: String, email: String, password: String, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), appleUserReference: CKRecord.Reference) {
+    init(username: String, email: String, password: String, topScore: Int, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), appleUserReference: CKRecord.Reference) {
         self.username = username
         self.email = email
         self.password = password
+        self.topScore = topScore
         self.recordID = recordID
         self.appleUserReference = appleUserReference
     }
@@ -35,10 +37,11 @@ extension User {
         guard let username = record[UserConstants.usernameKey] as? String,
         let email = record[UserConstants.emailKey] as? String,
         let password = record[UserConstants.passwordKey] as? String,
+        let topScore = record[UserConstants.topScoreKey] as? Int,
         let appleUserReference = record[UserConstants.appleUserReferenceKey] as? CKRecord.Reference
             else { return nil }
         
-        self.init(username: username, email: email, password: password, recordID: record.recordID, appleUserReference: appleUserReference)
+        self.init(username: username, email: email, password: password, topScore: topScore, recordID: record.recordID, appleUserReference: appleUserReference)
     }
 }
 
@@ -50,6 +53,7 @@ extension CKRecord {
         self.setValue(user.username, forKey: UserConstants.usernameKey)
         self.setValue(user.email, forKey: UserConstants.emailKey)
         self.setValue(user.password, forKey: UserConstants.passwordKey)
+        self.setValue(user.topScore, forKey: UserConstants.topScoreKey)
         self.setValue(user.appleUserReference, forKey: UserConstants.appleUserReferenceKey)
     }
 }
@@ -59,5 +63,6 @@ struct UserConstants {
     fileprivate static let usernameKey = "username"
     fileprivate static let emailKey = "email"
     fileprivate static let passwordKey = "password"
+    fileprivate static let topScoreKey = "topScore"
     fileprivate static let appleUserReferenceKey = "appleUserReference"
 }
