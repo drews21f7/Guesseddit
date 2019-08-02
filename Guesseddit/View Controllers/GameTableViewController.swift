@@ -12,6 +12,7 @@ class GameTableViewController: UITableViewController {
     
     var redditPostsShuffled = RedditPostController.sharedInstance.redditPosts.shuffled()
     
+    // Tracks number of guesses player has done
     var rounds = 0
     
     @IBOutlet weak var scoreLabel: UILabel!
@@ -71,22 +72,28 @@ class GameTableViewController: UITableViewController {
         guard let user = UserController.sharedInstance.currentUser else { return }
         let newHighScore: Bool
         var scoreDifference = 0
+        // Sets post with most upvotes to be the correct post
             let highestPost = correctPost(posts: redditPostsShuffled)
+        // Checks the post user tapped
             let selectedPost = redditPostsShuffled[indexPath.row]
+        
+            // Checks if user selected the post with the most upvotes, then adds those upvotes to their score
             if highestPost == redditPostsShuffled.firstIndex(of: selectedPost) {
                 score += selectedPost.post.upVotes
                 print (score)
                 print ("Great")
+                
+                // Checks to see if game is over yet, if not it removes the current posts and refills with new posts
                 if rounds != 7 {
                     rounds += 1
                     print ("There are \(redditPostsShuffled.count) posts left")
                     redditPostsShuffled.removeSubrange(0...2)
                     tableView.reloadData()
                     
+                    // Checks if user got a new high score at game end
                 } else if user.topScore < score {
                     scoreDifference = score - user.topScore
                     UserController.sharedInstance.updateUserScore(user: user, score: score)
-                    //user.topScore = score
                     newHighScore = true
                     gameEndNotification(score: score, scoreDifference: scoreDifference, newHighScore: newHighScore)
                 } else {
@@ -95,6 +102,11 @@ class GameTableViewController: UITableViewController {
                     gameEndNotification(score: score, scoreDifference: scoreDifference, newHighScore: newHighScore)
                 }
             } else {
+                // Divides current score by 4 on incorrect guess
+                let scorePenalty = score / 4
+                score -= scorePenalty
+                // Checks to see if game is over yet, if not it removes the current posts and refills with new posts
+                print (score)
                 print ("Not great")
                 if rounds != 7 {
                     rounds += 1
@@ -105,7 +117,6 @@ class GameTableViewController: UITableViewController {
                 } else if user.topScore < score {
                     scoreDifference = score - user.topScore
                     UserController.sharedInstance.updateUserScore(user: user, score: score)
-                    //user.topScore = score
                     newHighScore = true
                     gameEndNotification(score: score, scoreDifference: scoreDifference, newHighScore: newHighScore)
                 } else {
@@ -114,9 +125,6 @@ class GameTableViewController: UITableViewController {
                     gameEndNotification(score: score, scoreDifference: scoreDifference, newHighScore: newHighScore)
                 }
             }
-          //  redditPostsShuffled.removeSubrange(0...3)
-           // tableView.reloadData()
-            
     }
 
 
