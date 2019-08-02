@@ -13,8 +13,6 @@ class CloudKitController {
     
     static let sharedInstance = CloudKitController()
     
-    let privateDB = CKContainer.default().privateCloudDatabase
-    
     let publicDB = CKContainer.default().publicCloudDatabase
     
     //MARK: - CRUD
@@ -46,10 +44,8 @@ class CloudKitController {
         }
     }
     
-    func fetchRecordsOf(type: String, database: CKDatabase, completion: @escaping ([CKRecord]?, Error?) -> Void) {
+    func fetchRecordsOf(type: String, predicate: NSPredicate, database: CKDatabase, completion: @escaping ([CKRecord]?, Error?) -> Void) {
         
-        // Conditions of query, conditions to be return all found values
-        let predicate = NSPredicate(value: true)
         // Defines the record type you want to find, applies your predicate conditions
         let query = CKQuery(recordType: type, predicate: predicate)
         // Perform query, complete with your optional records and optional error

@@ -58,10 +58,13 @@ class GameTableViewController: UITableViewController {
 
         cell?.postTitleLabel.text = redditPost.post.title
         
-        RedditPostController.sharedInstance.fetchPostImage(image: redditPost) { (image) in
-            guard let image = image else { return }
-            DispatchQueue.main.async {
-                cell?.postImageView.image = image
+        if redditPost.post.isNSFW == false {
+            
+            RedditPostController.sharedInstance.fetchPostImage(image: redditPost) { (image) in
+                guard let image = image else { return }
+                DispatchQueue.main.async {
+                    cell?.postImageView.image = image
+                }
             }
         }
 

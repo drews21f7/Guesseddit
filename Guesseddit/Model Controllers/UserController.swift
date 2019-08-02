@@ -15,16 +15,18 @@ class UserController {
     
     var currentUser: User?
     
+    var userList: [User] = []
+    
     // MARK: - CRUD
     
     // Create
-    func createUserWith(username: String, email: String?, password: String, topScore: Int, completion: @escaping (User?) -> Void) {
+    func createUserWith(username: String, topScore: Int, completion: @escaping (User?) -> Void) {
         
         // Unwrap the optional CKReference or complete nil
         CloudKitController.sharedInstance.fetchAppleUserReference { (reference) in
             
             guard let appleUserReference = reference else { completion(nil) ; return }
-            let newUser = User(username: username, email: email ?? "none", password: password, topScore: topScore, appleUserReference: appleUserReference)
+            let newUser = User(username: username, topScore: topScore, appleUserReference: appleUserReference)
             let userRecord = CKRecord(user: newUser)
             let database = CloudKitController.sharedInstance.publicDB
             
@@ -59,28 +61,47 @@ class UserController {
         }
     }
     
-    func fetchUserFromLogin(user: String, pass: String, completion: @escaping (User?) -> Void) {
-        // Unwrap the optional CKReference or complete nil
-        CloudKitController.sharedInstance.fetchAppleUserReference { (reference) in
-            guard let appleUserReference = reference else { completion(nil) ; return }
+//    func fetchUserFromLogin(user: String, pass: String, completion: @escaping (User?) -> Void) {
+//        // Unwrap the optional CKReference or complete nil
+//        CloudKitController.sharedInstance.fetchAppleUserReference { (reference) in
+//            guard let appleUserReference = reference else { completion(nil) ; return }
+//
+//            let predicate = NSPredicate(format: "appleUserReference == %@", appleUserReference)
+//            let database = CloudKitController.sharedInstance.publicDB
+//            CloudKitController.sharedInstance.fetchSingleRecord(ofType: UserConstants.typeKey, withPredicate: predicate, database: database, completion: { (records) in
+//
+//                guard let records = records,
+//                    let record = records.first
+//                    else { completion(nil) ; return }
+//
+//                let userRecord = User(record: record)
+//                if user == userRecord?.username && pass == userRecord?.password {
+//                    print("User and pass match")
+//                    completion(userRecord)
+//
+//                }
+//                print("User and pass did not match")
+//                completion(nil)
+//            })
+//        }
+//    }
+    
+    func fetchUserList(completion: @escaping (Bool) -> Void) {
+        
+        let type = UserConstants.typeKey
+        let database = CloudKitController.sharedInstance.publicDB
+        let predicate = NSPredicate(value: true)
+        CloudKitController.sharedInstance.fetchRecordsOf(type: type, predicate: predicate, database: database) { (records, error) in
+            if let error = error {
+                print("Error in \(#function) : \(error.localizedDescription) /n---/n \(error)")
+                completion(false)
+            }
             
-            let predicate = NSPredicate(format: "appleUserReference == %@", appleUserReference)
-            let database = CloudKitController.sharedInstance.publicDB
-            CloudKitController.sharedInstance.fetchSingleRecord(ofType: UserConstants.typeKey, withPredicate: predicate, database: database, completion: { (records) in
-                
-                guard let records = records,
-                    let record = records.first
-                    else { completion(nil) ; return }
-                
-                let userRecord = User(record: record)
-                if user == userRecord?.username && pass == userRecord?.password {
-                    print("User and pass match")
-                    completion(userRecord)
-                    
-                }
-                print("User and pass did not match")
-                completion(nil)
-            })
+            guard let records = records else { return }
+            let users = records.compactMap( {User(record: $0)} )
+            self.sortUserScores(userArray: users)
+            self.userList = users
+            completion(true)
         }
     }
     
@@ -98,6 +119,10 @@ class UserController {
                 print("High score failed to update")
             }
         }
+    }
+    
+    func sortUserScores(userArray: [User]) {
+        userList.sort(by: { $0.topScore > $1.topScore })
     }
         
 }

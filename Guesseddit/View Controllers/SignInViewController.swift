@@ -11,13 +11,9 @@ import UIKit
 class SignInViewController: UIViewController {
 
     
-    @IBOutlet weak var logInUserTextField: UITextField!
-    @IBOutlet weak var logInPassTextField: UITextField!
-    
+
     @IBOutlet weak var signUpUserTextField: UITextField!
-    @IBOutlet weak var signUpEmailTextField: UITextField!
-    @IBOutlet weak var signUpPassTextField: UITextField!
-    @IBOutlet weak var signUpConfirmPassTextField: UITextField!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,38 +26,19 @@ class SignInViewController: UIViewController {
 
     }
     
-    @IBAction func loginButtonTapped(_ sender: Any) {
-        guard let username = logInUserTextField.text, !username.isEmpty,
-        let password = logInPassTextField.text, !password.isEmpty
-            else { return }
-        UserController.sharedInstance.fetchUserFromLogin(user: username, pass: password) { (user) in
-            if user != nil {
-                UserController.sharedInstance.currentUser = user
-            }
-        }
-    }
+
     
     @IBAction func signUpButtonTapped(_ sender: Any) {
-        guard let username = signUpUserTextField.text, !username.isEmpty,
-        let email = signUpEmailTextField.text,
-        let password = signUpPassTextField.text, !password.isEmpty,
-        let confirm = signUpConfirmPassTextField.text, !confirm.isEmpty
+        guard let username = signUpUserTextField.text, !username.isEmpty
             else { return }
         
-        if password == confirm {
-            
-            UserController.sharedInstance.createUserWith(username: username, email: email, password: password, topScore: 0) { (user) in
+            UserController.sharedInstance.createUserWith(username: username, topScore: 0) { (user) in
                 if user != nil {
                     UserController.sharedInstance.currentUser = user
                     self.presentGameMenuView()
                 }
             }
-        } else {
-            let alertcontroller = UIAlertController.init(title: "Passwords don't match", message: "Please re-type your password", preferredStyle: .alert)
-            let ok = UIAlertAction.init(title: "Ok", style: .cancel)
-            alertcontroller.addAction(ok)
-            present(alertcontroller, animated: true)
-        }
+
     }
     @IBAction func skipLoginButtonTapped(_ sender: Any) {
         presentGameMenuView()
