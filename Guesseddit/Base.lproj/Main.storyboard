@@ -277,6 +277,14 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PTR-vT-jGW">
+                                            <rect key="frame" x="339" y="40" width="49" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="(block)"/>
+                                            <connections>
+                                                <action selector="blockButtonTapped:" destination="H8V-K0-kAk" eventType="touchUpInside" id="1O1-ga-GmN"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="lUK-KJ-aPn" firstAttribute="top" secondItem="iHT-vs-BLa" secondAttribute="topMargin" constant="2" id="29f-ZQ-99i"/>
@@ -294,6 +302,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="blockButton" destination="PTR-vT-jGW" id="uFA-yr-5qm"/>
                                     <outlet property="positionNumberLabel" destination="4ws-lQ-lhH" id="f0n-uq-ODE"/>
                                     <outlet property="upvotesLabel" destination="nmb-z8-elw" id="haT-mW-DHH"/>
                                     <outlet property="usernameLabel" destination="lUK-KJ-aPn" id="3fv-R0-AHt"/>

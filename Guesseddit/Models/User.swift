@@ -13,18 +13,20 @@ class User {
     // Class Properties
     var username: String
     var topScore: Int = 0
-    var blockedUsers: [User] = []
+    var blockedUsers: [BlockedUser]
+    var blockedUserReferences: [CKRecord.Reference]
     // iCloud Class Properties
     let recordID: CKRecord.ID
     let appleUserReference: CKRecord.Reference
     
     /// Initializes a new User object
-    init(username: String, topScore: Int, blockedUsers: [User] = [], recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), appleUserReference: CKRecord.Reference) {
+    init(username: String, topScore: Int, blockedUsers: [BlockedUser] = [], recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), appleUserReference: CKRecord.Reference, blockedUserReferences: [CKRecord.Reference] = []) {
         self.username = username
         self.topScore = topScore
         self.blockedUsers = blockedUsers
         self.recordID = recordID
         self.appleUserReference = appleUserReference
+        self.blockedUserReferences = blockedUserReferences
     }
 }
 
@@ -34,11 +36,13 @@ extension User {
         // check against values
         guard let username = record[UserConstants.usernameKey] as? String,
         let topScore = record[UserConstants.topScoreKey] as? Int,
-        let blockedUsers = record[UserConstants.blockedUsersKey] as? [User],
         let appleUserReference = record[UserConstants.appleUserReferenceKey] as? CKRecord.Reference
             else { return nil }
         
-        self.init(username: username, topScore: topScore, blockedUsers: blockedUsers, recordID: record.recordID, appleUserReference: appleUserReference)
+        let blockedUsers = record[UserConstants.blockedUsersKey] as? [BlockedUser]
+        let blockedUserReferences = record[UserConstants.blockedUserRefKey] as? [CKRecord.Reference] ?? []
+        
+        self.init(username: username, topScore: topScore, blockedUsers: blockedUsers ?? [], recordID: record.recordID, appleUserReference: appleUserReference, blockedUserReferences: blockedUserReferences)
     }
 }
 
@@ -49,8 +53,11 @@ extension CKRecord {
         
         self.setValue(user.username, forKey: UserConstants.usernameKey)
         self.setValue(user.topScore, forKey: UserConstants.topScoreKey)
-        self.setValue(user.blockedUsers, forKey: UserConstants.blockedUsersKey)
+        //self.setValue(user.blockedUsers, forKey: UserConstants.blockedUsersKey)
         self.setValue(user.appleUserReference, forKey: UserConstants.appleUserReferenceKey)
+        if !user.blockedUserReferences.isEmpty  {
+            self.setValue(user.blockedUserReferences, forKey: UserConstants.blockedUserRefKey)
+        }
     }
 }
 
@@ -60,5 +67,6 @@ struct UserConstants {
     fileprivate static let topScoreKey = "topScore"
     fileprivate static let blockedUsersKey = "blockedUsers"
     fileprivate static let appleUserReferenceKey = "appleUserReference"
+    fileprivate static let blockedUserRefKey = "blockedUserReferences"
 }
 

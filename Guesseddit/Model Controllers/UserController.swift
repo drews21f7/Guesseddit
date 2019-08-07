@@ -41,6 +41,38 @@ class UserController {
         }
     }
     
+    func blockUser(user: User, userToBlock: User, completion: @escaping (BlockedUser) -> Void) {
+        
+        let newUserBlocked = BlockedUser(blockedUserRecordID: userToBlock.recordID, user: user)
+        let userRecord = CKRecord(blockedUser: newUserBlocked)
+        let database = CloudKitController.sharedInstance.publicDB
+        
+        CloudKitController.sharedInstance.save(record: userRecord, database: database) { (record) in
+            guard let record = record,
+            let blockedUser = BlockedUser(record: record)
+                else { return }
+            
+            completion(blockedUser)
+        }
+    }
+    
+    func blockUserReference(user: User, userToBlock: User, completion: @escaping (Bool) -> Void) {
+        
+        guard let currentUser = UserController.sharedInstance.currentUser else { completion(false); return }
+        let userReferenceToBlock = CKRecord.Reference(recordID: userToBlock.recordID, action: .none)
+        
+        
+        currentUser.blockedUserReferences.append(userReferenceToBlock)
+        
+        let record = CKRecord(user: currentUser)
+        let database = CloudKitController.sharedInstance.publicDB
+        CloudKitController.sharedInstance.update(record: record, database: database) { (success) in
+            if success {
+                print("yayayayayayayayayayaya")
+            }
+        }
+    }
+    
     // Read
     func fetchUserBool(completion: @escaping (Bool) -> Void) {
         // Unwrap the optional CKReference or complete nil
@@ -61,30 +93,28 @@ class UserController {
         }
     }
     
-//    func fetchUserFromLogin(user: String, pass: String, completion: @escaping (User?) -> Void) {
-//        // Unwrap the optional CKReference or complete nil
-//        CloudKitController.sharedInstance.fetchAppleUserReference { (reference) in
-//            guard let appleUserReference = reference else { completion(nil) ; return }
-//
-//            let predicate = NSPredicate(format: "appleUserReference == %@", appleUserReference)
-//            let database = CloudKitController.sharedInstance.publicDB
-//            CloudKitController.sharedInstance.fetchSingleRecord(ofType: UserConstants.typeKey, withPredicate: predicate, database: database, completion: { (records) in
-//
-//                guard let records = records,
-//                    let record = records.first
-//                    else { completion(nil) ; return }
-//
-//                let userRecord = User(record: record)
-//                if user == userRecord?.username && pass == userRecord?.password {
-//                    print("User and pass match")
-//                    completion(userRecord)
-//
-//                }
-//                print("User and pass did not match")
-//                completion(nil)
-//            })
-//        }
-//    }
+    func fetchBlockedUsers(user: User, completion: @escaping ([BlockedUser]?) -> Void) {
+        
+        let userPredicate = NSPredicate(format: "%K == %@", BlockedUserConstants.userReferenceKey)
+ //       let blockedUserIDs = user.blockedUsers.compactMap( { $0.blockedUserRecordID } )
+//        let avoidDuplicatePredicates = NSPredicate(format: "NOT(recordID IN %@)", blockedUserIDs)
+//        let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [userPredicate, avoidDuplicatePredicates])
+        
+        let type = BlockedUserConstants.recordType
+        let database = CloudKitController.sharedInstance.publicDB
+        CloudKitController.sharedInstance.fetchRecordsOf(type: type, predicate: userPredicate, database: database) { (records, error) in
+            if let error = error {
+                print("Error in \(#function) : \(error.localizedDescription) /n---/n \(error)")
+                completion(nil)
+            }
+            
+            guard let records = records else { return }
+            let blockedUsers = records.compactMap({BlockedUser(record: $0)} )
+            
+            completion(blockedUsers)
+        }
+    }
+    
     
     func fetchUserList(completion: @escaping (Bool) -> Void) {
         

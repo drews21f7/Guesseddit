@@ -23,6 +23,7 @@
 		3AFE7D4E22F3818600BDECEC /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFE7D4D22F3818600BDECEC /* SignInViewController.swift */; };
 		3AFE7D5022F4A13400BDECEC /* LeaderboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFE7D4F22F4A13400BDECEC /* LeaderboardTableViewCell.swift */; };
 		3AFE7D5222F4AC3600BDECEC /* LeaderboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFE7D5122F4AC3600BDECEC /* LeaderboardTableViewController.swift */; };
+		3AFE7D5422F8DD5900BDECEC /* BlockedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFE7D5322F8DD5900BDECEC /* BlockedUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		3AFE7D4D22F3818600BDECEC /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		3AFE7D4F22F4A13400BDECEC /* LeaderboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardTableViewCell.swift; sourceTree = "<group>"; };
 		3AFE7D5122F4AC3600BDECEC /* LeaderboardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardTableViewController.swift; sourceTree = "<group>"; };
+		3AFE7D5322F8DD5900BDECEC /* BlockedUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 			children = (
 				3A1DB46122E9087D00E737DC /* Reddit.swift */,
 				3AFE7D4722F348CE00BDECEC /* User.swift */,
+				3AFE7D5322F8DD5900BDECEC /* BlockedUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				3AFE7D4C22F34D4B00BDECEC /* CloudKitController.swift in Sources */,
 				3A1DB46722EA167600E737DC /* RedditController.swift in Sources */,
 				3AFE7D4A22F34CA000BDECEC /* UserController.swift in Sources */,
+				3AFE7D5422F8DD5900BDECEC /* BlockedUser.swift in Sources */,
 				3AFE7D5022F4A13400BDECEC /* LeaderboardTableViewCell.swift in Sources */,
 				3A1DB46D22ED123400E737DC /* GameTableViewController.swift in Sources */,
 				3A1DB44F22E9007F00E737DC /* AppDelegate.swift in Sources */,
