@@ -82,16 +82,13 @@ class LeaderboardTableViewController: UITableViewController {
         if cell?.usernameLabel.text != "*****" {
             cell?.tapAction = { (cell) in
                 
-//                UserController.sharedInstance.blockUser(user: currentUser, userToBlock: user, completion: { (blockedUser) in
+                self.blockedUserPopNotification(currentUser: currentUser, userToBlock: user)
+//                UserController.sharedInstance.blockUserReference(user: currentUser, userToBlock: user, completion: { (success) in
+//                    if success {
 //
-//                    UserController.sharedInstance.currentUser?.blockedUsers.append(blockedUser)
+//
+//                    }
 //                })
-                UserController.sharedInstance.blockUserReference(user: currentUser, userToBlock: user, completion: { (success) in
-                    if success {
-                        // cell?.usernameLabel.text = "*****"
-                        
-                    }
-                })
                 tableView.reloadRows(at: [indexPath], with: .fade)
                 
                 
@@ -124,4 +121,27 @@ class LeaderboardTableViewController: UITableViewController {
 //        if
 //    }
 
+}
+
+extension LeaderboardTableViewController {
+    func blockedUserPopNotification(currentUser: User, userToBlock: User) {
+        let alertcontroller = UIAlertController(title: "Are you sure you want to block this user's name?", message: "The user's name will be displayed as '*****', this cannot be undone. ", preferredStyle: .alert)
+        let blockUser = UIAlertAction(title: "Block", style: .destructive) { (_) in
+            UserController.sharedInstance.blockUserReference(user: currentUser, userToBlock: userToBlock, completion: { (success) in
+                print(success)
+                if success {
+                    DispatchQueue.main.async {
+                        
+                        self.tableView.reloadData()
+                    }
+                    
+                }
+            })
+        }
+        let cancelAlert = UIAlertAction(title: "Cancel", style: .cancel)
+        alertcontroller.addAction(blockUser)
+        alertcontroller.addAction(cancelAlert)
+        
+        present(alertcontroller, animated: true)
+    }
 }

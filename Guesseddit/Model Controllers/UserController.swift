@@ -70,7 +70,9 @@ class UserController {
             if success {
                 print("yayayayayayayayayayaya")
             }
+            completion(success)
         }
+        
     }
     
     // Read
