@@ -40,9 +40,7 @@ class SignInViewController: UIViewController {
             }
 
     }
-    @IBAction func skipLoginButtonTapped(_ sender: Any) {
-        presentGameMenuView()
-    }
+
     /*
     // MARK: - Navigation
 

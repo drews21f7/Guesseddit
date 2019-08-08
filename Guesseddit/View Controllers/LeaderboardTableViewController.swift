@@ -53,6 +53,10 @@ class LeaderboardTableViewController: UITableViewController {
     
 
     // MARK: - Table view data source
+    
+//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return "Top Scores"
+//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -66,7 +70,7 @@ class LeaderboardTableViewController: UITableViewController {
         let user = UserController.sharedInstance.userList[indexPath.row]
         guard let currentUser = UserController.sharedInstance.currentUser else { return LeaderboardTableViewCell() }
         
-        cell?.positionNumberLabel.text = "1"//"\(UserController.sharedInstance.userList[indexPath.item])"
+        cell?.positionNumberLabel.text = "\(indexPath.row + 1)"
         
         let reference = CKRecord.Reference(recordID: user.recordID, action: .none)
         
