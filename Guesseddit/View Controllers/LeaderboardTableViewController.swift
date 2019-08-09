@@ -130,7 +130,7 @@ class LeaderboardTableViewController: UITableViewController {
 
 extension LeaderboardTableViewController {
     func blockedUserPopNotification(currentUser: User, userToBlock: User) {
-        let alertcontroller = UIAlertController(title: "Are you sure you want to block this user's name?", message: "The user's name will be displayed as '*****', this cannot be undone. ", preferredStyle: .alert)
+        let alertcontroller = UIAlertController(title: "Are you sure you want to block this user's name?", message: "The user's name will be displayed as *****, this cannot be undone. ", preferredStyle: .alert)
         let blockUser = UIAlertAction(title: "Block", style: .destructive) { (_) in
             UserController.sharedInstance.blockUserReference(user: currentUser, userToBlock: userToBlock, completion: { (success) in
                 print(success)

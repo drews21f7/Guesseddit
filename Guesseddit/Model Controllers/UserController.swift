@@ -132,8 +132,9 @@ class UserController {
             
             guard let records = records else { return }
             let users = records.compactMap( {User(record: $0)} )
-            self.sortUserScores(userArray: users)
+            //self.sortUserScores(userArray: users)
             self.userList = users
+            self.userList.sort(by: { $0.topScore > $1.topScore })
             completion(true)
         }
     }
@@ -154,8 +155,8 @@ class UserController {
         }
     }
     
-    func sortUserScores(userArray: [User]) {
-        userList.sort(by: { $0.topScore > $1.topScore })
-    }
-        
+//    func sortUserScores(userArray: [User]) {
+//        userList.sort(by: { $0.topScore > $1.topScore })
+//    }
+    
 }
