@@ -77,6 +77,7 @@ class UserController {
     
     // Read
     func fetchUserBool(completion: @escaping (Bool) -> Void) {
+        
         // Unwrap the optional CKReference or complete nil
         CloudKitController.sharedInstance.fetchAppleUserReference { (reference) in
             guard let appleUserReference = reference else { completion(false) ; return }

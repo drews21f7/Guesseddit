@@ -37,6 +37,7 @@ struct PostContent: Codable {
     var title: String
     var upVotes: Int
     var imageURLAsString: String?
+    var postType: String?
     var isNSFW: Bool
     var isSelected: Bool = false
     let id: String
@@ -45,6 +46,7 @@ struct PostContent: Codable {
         case title
         case upVotes = "ups"
         case imageURLAsString = "url"
+        case postType = "post_hint"
         case isNSFW = "over_18"
         case id
     }

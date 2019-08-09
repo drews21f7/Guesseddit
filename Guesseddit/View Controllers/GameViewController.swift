@@ -62,7 +62,7 @@ class GameViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         cell?.postLabel.text = redditPost.post.title
         
-        if redditPost.post.isNSFW == false {
+        if redditPost.post.isNSFW == false && redditPost.post.postType == "image" {
             
             RedditPostController.sharedInstance.fetchPostImage(image: redditPost) { (image) in
                 guard let image = image else { return }
@@ -70,6 +70,8 @@ class GameViewController: UIViewController, UITableViewDelegate, UITableViewData
                     cell?.postImageView.image = image
                 }
             }
+        } else {
+            cell?.postImageView.image = UIImage(named: "noimage")
         }
         
         return cell ?? UITableViewCell()

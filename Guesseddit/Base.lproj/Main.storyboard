@@ -96,66 +96,90 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="L2I-41-8fS">
-                                <rect key="frame" x="136" y="296" width="103" height="240"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="m6Z-7e-B4V">
+                                <rect key="frame" x="87.5" y="184" width="239" height="239"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9P-tl-SuU">
-                                        <rect key="frame" x="0.0" y="0.0" width="103" height="30"/>
-                                        <state key="normal" title="r/AskReddit"/>
-                                        <connections>
-                                            <action selector="askRedditButtonTapped:" destination="TNa-c9-HKf" eventType="touchUpInside" id="HFR-dL-79j"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g95-2w-Rfd">
-                                        <rect key="frame" x="0.0" y="42" width="103" height="30"/>
-                                        <state key="normal" title="r/todayilearned"/>
-                                        <connections>
-                                            <action selector="todayILearnedButtonTapped:" destination="TNa-c9-HKf" eventType="touchUpInside" id="LM4-l7-RD4"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybG-JK-g4w">
-                                        <rect key="frame" x="0.0" y="84" width="103" height="30"/>
-                                        <state key="normal" title="r/worldnews"/>
-                                        <connections>
-                                            <action selector="worldNewsButtonTapped:" destination="TNa-c9-HKf" eventType="touchUpInside" id="sEL-LC-W3g"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TJX-3n-Tmj">
-                                        <rect key="frame" x="0.0" y="126" width="103" height="30"/>
-                                        <state key="normal" title="r/Science"/>
-                                        <connections>
-                                            <action selector="scienceButtonTapped:" destination="TNa-c9-HKf" eventType="touchUpInside" id="bg2-4g-lGn"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQj-qO-H7J">
-                                        <rect key="frame" x="0.0" y="168" width="103" height="30"/>
-                                        <state key="normal" title="r/pics"/>
-                                        <connections>
-                                            <action selector="picsButtonTapped:" destination="TNa-c9-HKf" eventType="touchUpInside" id="tqy-KL-0Tu"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9O-xM-vd7">
-                                        <rect key="frame" x="0.0" y="210" width="103" height="30"/>
-                                        <state key="normal" title="r/gaming"/>
-                                        <connections>
-                                            <action selector="gamingButtonTapped:" destination="TNa-c9-HKf" eventType="touchUpInside" id="Si2-zc-vf0"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="3ju-Zi-Ewt">
+                                        <rect key="frame" x="0.0" y="0.0" width="239" height="56.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9P-tl-SuU">
+                                                <rect key="frame" x="0.0" y="0.0" width="103" height="56.5"/>
+                                                <state key="normal" title="r/AskReddit"/>
+                                                <connections>
+                                                    <action selector="askRedditButtonTapped:" destination="TNa-c9-HKf" eventType="touchUpInside" id="HFR-dL-79j"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g95-2w-Rfd">
+                                                <rect key="frame" x="136" y="0.0" width="103" height="56.5"/>
+                                                <state key="normal" title="r/todayilearned"/>
+                                                <connections>
+                                                    <action selector="todayILearnedButtonTapped:" destination="TNa-c9-HKf" eventType="touchUpInside" id="LM4-l7-RD4"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="kKa-9x-NPW">
+                                        <rect key="frame" x="0.0" y="91.5" width="239" height="56"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybG-JK-g4w">
+                                                <rect key="frame" x="0.0" y="0.0" width="103" height="56"/>
+                                                <state key="normal" title="r/worldnews"/>
+                                                <connections>
+                                                    <action selector="worldNewsButtonTapped:" destination="TNa-c9-HKf" eventType="touchUpInside" id="sEL-LC-W3g"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TJX-3n-Tmj">
+                                                <rect key="frame" x="136" y="0.0" width="103" height="56"/>
+                                                <state key="normal" title="r/Science"/>
+                                                <connections>
+                                                    <action selector="scienceButtonTapped:" destination="TNa-c9-HKf" eventType="touchUpInside" id="bg2-4g-lGn"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="3lo-00-TJd">
+                                        <rect key="frame" x="0.0" y="182.5" width="239" height="56.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQj-qO-H7J">
+                                                <rect key="frame" x="0.0" y="0.0" width="103" height="56.5"/>
+                                                <state key="normal" title="r/pics"/>
+                                                <connections>
+                                                    <action selector="picsButtonTapped:" destination="TNa-c9-HKf" eventType="touchUpInside" id="tqy-KL-0Tu"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9O-xM-vd7">
+                                                <rect key="frame" x="136" y="0.0" width="103" height="56.5"/>
+                                                <state key="normal" title="r/gaming"/>
+                                                <connections>
+                                                    <action selector="gamingButtonTapped:" destination="TNa-c9-HKf" eventType="touchUpInside" id="Si2-zc-vf0"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="m6Z-7e-B4V" secondAttribute="height" multiplier="1:1" id="PSF-30-kDc"/>
+                                </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="f7o-XI-sxY">
-                                <rect key="frame" x="126" y="644" width="125" height="220"/>
+                                <rect key="frame" x="144.5" y="542" width="125" height="230"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAq-Ac-uwJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="125" height="93.5"/>
-                                        <state key="normal" title="Play Game"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="125" height="98.5"/>
+                                        <color key="backgroundColor" red="0.92404806610000001" green="0.33214947579999998" blue="0.16066402199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Start Game">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <segue destination="fiD-4Z-dVJ" kind="show" identifier="toGameSegue" id="CGE-f4-QoN"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVe-HP-tI0">
-                                        <rect key="frame" x="0.0" y="126.5" width="125" height="93.5"/>
-                                        <state key="normal" title="View Leaderboard"/>
+                                        <rect key="frame" x="0.0" y="131.5" width="125" height="98.5"/>
+                                        <color key="backgroundColor" red="0.92404806610000001" green="0.33214947579999998" blue="0.16066402199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="View Leaderboard">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="viewLeaderboardButtonTapped:" destination="TNa-c9-HKf" eventType="touchUpInside" id="bRZ-2v-3x4"/>
                                             <segue destination="6cf-7I-OkQ" kind="show" id="Xaq-5O-c9L"/>
@@ -163,30 +187,31 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to play" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BfX-ld-nKM">
-                                <rect key="frame" x="132" y="108" width="151.5" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose your subreddit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BfX-ld-nKM">
+                                <rect key="frame" x="61" y="108" width="292" height="36"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xad-zw-noe">
-                                <rect key="frame" x="8" y="154" width="398" height="122"/>
-                                <string key="text">First tap your favorite subreddit from the list of available subreddits. All posts will come from that subreddit. Then, after you start the game, pick which post you think got the most upvotes. Your final score will be the sum of every correct answer's number of upvotes.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0B-tV-cWn">
+                                <rect key="frame" x="163" y="792" width="88" height="30"/>
+                                <state key="normal" title="How to play?"/>
+                                <connections>
+                                    <segue destination="vDC-3N-kKH" kind="show" id="tCm-f8-1O8"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8cb-7E-A6b">
-                                <rect key="frame" x="85" y="556" width="205" height="49"/>
+                                <rect key="frame" x="105" y="463" width="204" height="49"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your subreddit of choice is" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOm-jS-VwD">
-                                        <rect key="frame" x="0.0" y="0.0" width="205" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="204" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="(subreddit)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fv-yT-dBF">
-                                        <rect key="frame" x="0.0" y="28.5" width="205" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="28.5" width="204" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -196,19 +221,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="f7o-XI-sxY" firstAttribute="top" secondItem="8cb-7E-A6b" secondAttribute="bottom" constant="39" id="0le-Yf-gxj"/>
-                            <constraint firstItem="xad-zw-noe" firstAttribute="leading" secondItem="DvY-td-pmr" secondAttribute="leading" constant="8" id="1hD-cP-TaY"/>
-                            <constraint firstItem="BfX-ld-nKM" firstAttribute="top" secondItem="DvY-td-pmr" secondAttribute="top" constant="20" id="7Ve-vV-8K9"/>
-                            <constraint firstItem="DvY-td-pmr" firstAttribute="trailing" secondItem="xad-zw-noe" secondAttribute="trailing" constant="8" id="Hqn-cq-lHH"/>
-                            <constraint firstItem="BfX-ld-nKM" firstAttribute="leading" secondItem="DvY-td-pmr" secondAttribute="leading" constant="132" id="MFL-cO-CNh"/>
-                            <constraint firstItem="8cb-7E-A6b" firstAttribute="top" secondItem="L2I-41-8fS" secondAttribute="bottom" constant="20" id="PKS-22-znK"/>
-                            <constraint firstItem="8cb-7E-A6b" firstAttribute="leading" secondItem="DvY-td-pmr" secondAttribute="leading" constant="85" id="WEN-pi-bt0"/>
-                            <constraint firstItem="xad-zw-noe" firstAttribute="top" secondItem="BfX-ld-nKM" secondAttribute="bottom" constant="10" id="YoE-iy-GJB"/>
-                            <constraint firstItem="L2I-41-8fS" firstAttribute="centerX" secondItem="8cb-7E-A6b" secondAttribute="centerX" id="iJJ-x8-4cr"/>
-                            <constraint firstItem="f7o-XI-sxY" firstAttribute="leading" secondItem="DvY-td-pmr" secondAttribute="leading" constant="126" id="koH-UG-m0F"/>
-                            <constraint firstItem="L2I-41-8fS" firstAttribute="top" secondItem="xad-zw-noe" secondAttribute="bottom" constant="20" id="pWo-hW-Xi0"/>
-                            <constraint firstItem="L2I-41-8fS" firstAttribute="leading" secondItem="DvY-td-pmr" secondAttribute="leading" constant="136" id="wfQ-Fh-cPf"/>
-                            <constraint firstItem="f7o-XI-sxY" firstAttribute="bottom" secondItem="DvY-td-pmr" secondAttribute="bottom" constant="2" id="yUg-Uf-aay"/>
+                            <constraint firstItem="w0B-tV-cWn" firstAttribute="top" secondItem="f7o-XI-sxY" secondAttribute="bottom" constant="20" id="Bix-sb-ehk"/>
+                            <constraint firstItem="8cb-7E-A6b" firstAttribute="centerX" secondItem="LSd-a8-KWp" secondAttribute="centerX" id="Chn-Dq-r6V"/>
+                            <constraint firstItem="f7o-XI-sxY" firstAttribute="top" relation="lessThanOrEqual" secondItem="8cb-7E-A6b" secondAttribute="bottom" constant="30" id="Y6f-Ic-Fyc"/>
+                            <constraint firstItem="w0B-tV-cWn" firstAttribute="centerX" secondItem="LSd-a8-KWp" secondAttribute="centerX" id="gKR-jZ-BMS"/>
+                            <constraint firstItem="DvY-td-pmr" firstAttribute="bottom" secondItem="w0B-tV-cWn" secondAttribute="bottom" constant="40" id="gNM-g6-CZe"/>
+                            <constraint firstItem="8cb-7E-A6b" firstAttribute="top" relation="lessThanOrEqual" secondItem="m6Z-7e-B4V" secondAttribute="bottom" constant="40" id="lX9-E9-V8k"/>
+                            <constraint firstItem="f7o-XI-sxY" firstAttribute="centerX" secondItem="LSd-a8-KWp" secondAttribute="centerX" id="psx-L0-P3h"/>
+                            <constraint firstItem="BfX-ld-nKM" firstAttribute="top" secondItem="DvY-td-pmr" secondAttribute="top" constant="20" id="qb4-lD-IrI"/>
+                            <constraint firstItem="m6Z-7e-B4V" firstAttribute="top" relation="lessThanOrEqual" secondItem="BfX-ld-nKM" secondAttribute="bottom" constant="40" id="qu4-5n-MN0"/>
+                            <constraint firstItem="BfX-ld-nKM" firstAttribute="centerX" secondItem="LSd-a8-KWp" secondAttribute="centerX" id="tIi-rL-yHn"/>
+                            <constraint firstItem="m6Z-7e-B4V" firstAttribute="centerX" secondItem="LSd-a8-KWp" secondAttribute="centerX" id="ztJ-ln-kgI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DvY-td-pmr"/>
                     </view>
@@ -274,7 +297,7 @@
                                         </stackView>
                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PTR-vT-jGW">
                                             <rect key="frame" x="348" y="22.5" width="38" height="30"/>
-                                            <color key="backgroundColor" red="0.2026954889" green="0.4662030935" blue="0.80003917219999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="backgroundColor" red="0.92404806610000001" green="0.33214947579999998" blue="0.16066402199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <state key="normal" title="Block">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
@@ -313,6 +336,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ipN-yk-xMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3715.9420289855075" y="499.55357142857139"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="8sl-Ew-D8e">
+            <objects>
+                <viewController id="vDC-3N-kKH" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CUy-be-y2x">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D8a-3q-4ei">
+                                <rect key="frame" x="30" y="357.5" width="354" height="181.5"/>
+                                <string key="text">On game start you will see 3 different reddit posts. Tap the post you think got the most upvotes out of the 3. If you guess right, that posts upvotes gets added to your score. If you guess wrong, your current score is cut by 1/4th! Your highest score will be displayed on the Global Leaderboard. Good luck!</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to Play" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSC-v9-8jg">
+                                <rect key="frame" x="118" y="138" width="178" height="119.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="iSC-v9-8jg" firstAttribute="top" secondItem="YDu-S3-orj" secondAttribute="top" constant="50" id="AiS-C4-bhn"/>
+                            <constraint firstItem="D8a-3q-4ei" firstAttribute="top" secondItem="iSC-v9-8jg" secondAttribute="bottom" constant="100" id="H88-sc-MbV"/>
+                            <constraint firstItem="D8a-3q-4ei" firstAttribute="centerY" secondItem="CUy-be-y2x" secondAttribute="centerY" id="IU6-SJ-qkJ"/>
+                            <constraint firstAttribute="trailing" secondItem="D8a-3q-4ei" secondAttribute="trailing" constant="30" id="VYa-NR-Zf0"/>
+                            <constraint firstItem="iSC-v9-8jg" firstAttribute="centerX" secondItem="CUy-be-y2x" secondAttribute="centerX" id="j28-oI-wUr"/>
+                            <constraint firstItem="D8a-3q-4ei" firstAttribute="leading" secondItem="CUy-be-y2x" secondAttribute="leading" constant="30" id="jaA-Rx-Fpg"/>
+                            <constraint firstItem="D8a-3q-4ei" firstAttribute="centerX" secondItem="CUy-be-y2x" secondAttribute="centerX" id="xgL-BB-bxe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YDu-S3-orj"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eBY-nC-qD8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2792.753623188406" y="853.79464285714278"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="XVV-d4-m1H">
@@ -369,7 +431,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="369.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q3S-cV-kwJ">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noimage" translatesAutoresizingMaskIntoConstraints="NO" id="q3S-cV-kwJ">
                                                     <rect key="frame" x="52" y="80" width="310" height="247"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="q3S-cV-kwJ" secondAttribute="height" multiplier="310:247" id="VS7-4a-3ml"/>
@@ -442,6 +504,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="noimage" width="1024" height="1024"/>
         <image name="upvote" width="960" height="911"/>
     </resources>
 </document>
