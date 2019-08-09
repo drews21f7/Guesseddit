@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController, UITextFieldDelegate {
 
     
 
@@ -16,7 +16,10 @@ class SignInViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        signUpUserTextField.delegate = self
+        let tapgesture = UITapGestureRecognizer()
+        tapgesture.addTarget(self, action: #selector(dismissKeyboard))
+        self.view.addGestureRecognizer(tapgesture)
         UserController.sharedInstance.fetchUserBool { (success) in
             if success {
                 self.presentGameMenuView()
@@ -26,7 +29,9 @@ class SignInViewController: UIViewController {
 
     }
     
-
+    @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        signUpUserTextField.resignFirstResponder()
+    }
     
     @IBAction func signUpButtonTapped(_ sender: Any) {
         guard let username = signUpUserTextField.text, !username.isEmpty

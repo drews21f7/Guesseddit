@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A10D9A422FCD3C400EFEF27 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A10D9A322FCD3C400EFEF27 /* GameViewController.swift */; };
 		3A1CF0ED22EF89A60034097A /* GameMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1CF0EC22EF89A60034097A /* GameMenuViewController.swift */; };
 		3A1CF0F022EFACB20034097A /* GameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1CF0EF22EFACB20034097A /* GameTableViewCell.swift */; };
 		3A1DB44F22E9007F00E737DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1DB44E22E9007F00E737DC /* AppDelegate.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A10D9A322FCD3C400EFEF27 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		3A1CF0EC22EF89A60034097A /* GameMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMenuViewController.swift; sourceTree = "<group>"; };
 		3A1CF0EF22EFACB20034097A /* GameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewCell.swift; sourceTree = "<group>"; };
 		3A1DB44B22E9007F00E737DC /* Guesseddit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Guesseddit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +138,7 @@
 			children = (
 				3A1CF0EE22EFA90A0034097A /* CustomViews */,
 				3A1DB46C22ED123400E737DC /* GameTableViewController.swift */,
+				3A10D9A322FCD3C400EFEF27 /* GameViewController.swift */,
 				3A1CF0EC22EF89A60034097A /* GameMenuViewController.swift */,
 				3AFE7D4D22F3818600BDECEC /* SignInViewController.swift */,
 				3AFE7D5122F4AC3600BDECEC /* LeaderboardTableViewController.swift */,
@@ -230,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A10D9A422FCD3C400EFEF27 /* GameViewController.swift in Sources */,
 				3A1CF0ED22EF89A60034097A /* GameMenuViewController.swift in Sources */,
 				3AFE7D4C22F34D4B00BDECEC /* CloudKitController.swift in Sources */,
 				3A1DB46722EA167600E737DC /* RedditController.swift in Sources */,

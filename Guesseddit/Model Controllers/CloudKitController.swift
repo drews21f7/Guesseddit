@@ -13,6 +13,8 @@ class CloudKitController {
     
     static let sharedInstance = CloudKitController()
     
+    var fetchAppleUserReferenceError = false
+    
     let publicDB = CKContainer.default().publicCloudDatabase
     
     //MARK: - CRUD
@@ -51,6 +53,7 @@ class CloudKitController {
         // Perform query, complete with your optional records and optional error
         database.perform(query, inZoneWith: nil) { (records, error) in
             if let error = error {
+                self.fetchAppleUserReferenceError = true
                 print ("Error in \(#function) : \(error.localizedDescription) /n---/n \(error)")
                 completion(nil, error)
             }

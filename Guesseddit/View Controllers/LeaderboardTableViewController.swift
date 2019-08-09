@@ -15,6 +15,7 @@ class LeaderboardTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = UITableView.automaticDimension
         UserController.sharedInstance.fetchUserList { (success) in
             if success {
                 DispatchQueue.main.async {
