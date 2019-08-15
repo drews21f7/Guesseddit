@@ -205,8 +205,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0B-tV-cWn">
-                                <rect key="frame" x="163" y="792" width="88" height="30"/>
-                                <state key="normal" title="How to play?"/>
+                                <rect key="frame" x="166.5" y="792" width="81" height="30"/>
+                                <state key="normal" title="How to play"/>
                                 <connections>
                                     <segue destination="vDC-3N-kKH" kind="show" id="tCm-f8-1O8"/>
                                 </connections>
