@@ -45,34 +45,21 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="tXF-If-tV0" firstAttribute="centerY" secondItem="jVj-dV-Xw3" secondAttribute="centerY" id="nXh-eu-toM"/>
+                                    <constraint firstItem="tXF-If-tV0" firstAttribute="centerX" secondItem="jVj-dV-Xw3" secondAttribute="centerX" id="u5Y-0D-xBa"/>
+                                </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="fillEqually" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="VyL-jh-KNV">
-                                <rect key="frame" x="150" y="314.5" width="72" height="99"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAn-gz-YTj">
-                                        <rect key="frame" x="0.0" y="0.0" width="72" height="30"/>
-                                        <color key="backgroundColor" red="0.92404806610000001" green="0.33214947579999998" blue="0.16066402199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <state key="normal" title="Sign Up">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="signUpButtonTapped:" destination="dMl-uv-3Jh" eventType="touchUpInside" id="1up-4Q-eSC"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RSR-aq-5YN">
-                                        <rect key="frame" x="0.0" y="69" width="72" height="30"/>
-                                        <color key="backgroundColor" red="0.92404806610000001" green="0.33214947579999998" blue="0.16066402199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <state key="normal" title="Skip Login">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="signUpButtonTapped:" destination="dMl-uv-3Jh" eventType="touchUpInside" id="29b-kV-9VI"/>
-                                            <segue destination="UYW-9r-71e" kind="show" id="sw6-TS-rig"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VAn-gz-YTj">
+                                <rect key="frame" x="180" y="304.5" width="54" height="30"/>
+                                <color key="backgroundColor" red="0.92404806610000001" green="0.33214947579999998" blue="0.16066402199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="signUpButtonTapped:" destination="dMl-uv-3Jh" eventType="touchUpInside" id="1up-4Q-eSC"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type a username to save your high score to the leaderboard! Requires an apple ID" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtM-6A-hvp">
                                 <rect key="frame" x="20" y="193.5" width="374" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -93,10 +80,12 @@
                             <constraint firstItem="lUb-5D-lfJ" firstAttribute="centerX" secondItem="wwq-nd-aHm" secondAttribute="centerX" id="EyW-Bd-dnB"/>
                             <constraint firstItem="mtM-6A-hvp" firstAttribute="top" secondItem="Wx7-47-5El" secondAttribute="bottom" constant="50" id="L92-MF-Gbt"/>
                             <constraint firstAttribute="trailing" secondItem="mtM-6A-hvp" secondAttribute="trailing" constant="20" id="UoI-MM-L7K"/>
+                            <constraint firstItem="VAn-gz-YTj" firstAttribute="centerX" secondItem="wwq-nd-aHm" secondAttribute="centerX" id="WjC-Rs-97J"/>
                             <constraint firstItem="lUb-5D-lfJ" firstAttribute="top" secondItem="kl9-MX-j1h" secondAttribute="top" constant="20" id="YY2-98-Lae"/>
                             <constraint firstItem="jVj-dV-Xw3" firstAttribute="centerX" secondItem="wwq-nd-aHm" secondAttribute="centerX" id="dQW-kU-4ND"/>
                             <constraint firstItem="mtM-6A-hvp" firstAttribute="leading" secondItem="wwq-nd-aHm" secondAttribute="leading" constant="20" id="eaF-ye-hUa"/>
                             <constraint firstItem="jVj-dV-Xw3" firstAttribute="top" secondItem="mtM-6A-hvp" secondAttribute="bottom" constant="20" id="g2P-z4-O5z"/>
+                            <constraint firstItem="VAn-gz-YTj" firstAttribute="top" secondItem="jVj-dV-Xw3" secondAttribute="bottom" constant="20" id="ilX-RR-JzG"/>
                             <constraint firstItem="mtM-6A-hvp" firstAttribute="centerX" secondItem="wwq-nd-aHm" secondAttribute="centerX" id="zCh-Kj-FGR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kl9-MX-j1h"/>
