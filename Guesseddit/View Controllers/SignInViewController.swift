@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class SignInViewController: UIViewController, UITextFieldDelegate {
 
@@ -16,6 +17,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkForiCloudUser()
         signUpUserTextField.delegate = self
         let tapgesture = UITapGestureRecognizer()
         tapgesture.addTarget(self, action: #selector(dismissKeyboard))
@@ -27,6 +29,38 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         }
 
 
+    }
+    
+    func checkForiCloudUser() {
+        CKContainer.default().accountStatus { (status, error) in
+            if let error = error {
+                print("\(error.localizedDescription)")
+            } else {
+                switch status {
+                case .available : print("available")
+                case .restricted : print("restricted")
+                case .noAccount :
+                    DispatchQueue.main.async {
+                        let alertController = UIAlertController (title: "Uh Oh!", message: "No iCloud Account Found! Please go to Settings and log in to your account.\n\n After logging in, please close the App before running again.", preferredStyle: .alert)
+                        let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) -> Void in
+                            guard let settingsUrl = URL(string: "App-Prefs:root=GENERAL") else {
+                                return
+                            }
+                            if UIApplication.shared.canOpenURL(settingsUrl) {
+                                UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                                    print("Settings opened: \(success)")
+                                })
+                            }
+                        }
+                        alertController.addAction(settingsAction)
+                        self.present(alertController, animated: true, completion: nil)
+                    }
+                case .couldNotDetermine : print("Account could not be determined")
+                @unknown default:
+                    fatalError()
+                }
+            }
+        }
     }
     
     @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
@@ -42,7 +76,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                     UserController.sharedInstance.currentUser = user
                     self.presentGameMenuView()
                 } else {
-                    self.resignFirstResponder()
+                    //self.resignFirstResponder()
                     self.invalidUserNameAlert()
                 }
             }
